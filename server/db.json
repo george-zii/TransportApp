@@ -1,0 +1,20 @@
+{
+    "transport": [
+      { "id": 1, "title": "car1", "type": 1, "latitude": "56.474889",
+      "longitude": "84.9587535", "driverName": "Bob", "driverNumber": "+79991234561", "photo": "https://randomuser.me/api/portraits/men/31.jpg" },
+      { "id": 2, "title": "car2", "type": 1, "latitude": "55.474889",
+      "longitude": "85.9587535", "driverName": "Alice", "driverNumber": "+79991234562", "photo": "https://randomuser.me/api/portraits/men/32.jpg" },
+      { "id": 3, "title": "car3", "type": 2, "latitude": "54.474889",
+      "longitude": "84.9587535", "driverName": "Mark", "driverNumber": "+79991234563", "photo": "https://randomuser.me/api/portraits/men/33.jpg" },
+      { "id": 4, "title": "car4", "type": 2, "latitude": "55.474889",
+      "longitude": "84.9587535", "driverName": "Sam", "driverNumber": "+79991234564", "photo": "https://randomuser.me/api/portraits/men/34.jpg" },
+      { "id": 5, "title": "car5", "type": 1, "latitude": "57.474889",
+      "longitude": "84.9587535", "driverName": "Jack", "driverNumber": "+79991234565", "photo": "https://randomuser.me/api/portraits/men/35.jpg" },
+      { "id": 6, "title": "car6", "type": 3, "latitude": "56.474889",
+      "longitude": "85.9587535", "driverName": "Artom", "driverNumber": "+79991234566", "photo": "https://randomuser.me/api/portraits/men/36.jpg" },
+      { "id": 7, "title": "car7", "type": 3, "latitude": "56.474889",
+      "longitude": "86.9587535", "driverName": "Ed", "driverNumber": "+79991234567", "photo": "https://randomuser.me/api/portraits/men/37.jpg" },
+      { "id": 8, "title": "car8", "type": 3, "latitude": "56.474889",
+      "longitude": "83.9587535", "driverName": "Not Ed", "driverNumber": "+79991234568", "photo": "https://randomuser.me/api/portraits/men/38.jpg" }
+    ]
+}
