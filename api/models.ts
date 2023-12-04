@@ -31,10 +31,12 @@ export interface Localization {
         list: string,
     },
     ymap: string,
+    mapIsLoading: string,
     info: string,
     call: string,
     write: string,
     whatsappText: string,
+    networkError: string,
 }
 
 export interface YandexMapProps {

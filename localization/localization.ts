@@ -21,10 +21,12 @@ export const globalLocalization = {
             list: 'Список',
         },
         ymap: 'ru_Ru',
+        mapIsLoading: 'Загрузка карты..',
         info: 'Инфо',
         call: 'Позвонить',
         write: 'Написать',
         whatsappText: 'Добрый день, какой ночер заказа у вас сейчас в работе?',
+        networkError: 'Упс! Данные не загрузились, проблема решается, продолжите на iOS'
     },
     en: {
         cars: 'Cars',
@@ -48,9 +50,11 @@ export const globalLocalization = {
             list: 'List',
         },
         ymap: 'en_En',
+        mapIsLoading: 'Loading..',
         info: 'Info',
         call: 'Call',
         write: 'Write',
         whatsappText: 'Hello, what order date are you currently working on?',
+        networkError: 'Oops! The data did not load, the problem is solved, try it on iOS'
     },
 }

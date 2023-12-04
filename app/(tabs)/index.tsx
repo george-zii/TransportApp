@@ -84,7 +84,7 @@ export default function TabOneScreen() {
         <>
           <View style={styles.container}>
             {carsQuery.isLoading ? <ActivityIndicator /> : null}
-            {carsQuery.isError ? <Text>local?.transportUnloaded</Text> : null}
+            {carsQuery.isError ? <Text>{localization.networkError}</Text> : null}
             <FlatList
               data={carsQuery.data?.data.filter(
                 (item) => item.type === typeIndex + 1
