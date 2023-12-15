@@ -36,9 +36,6 @@ $ npx json-server --watch server/db.json --port 3000
 $ Yarn
 ```
 
-## To do
-- [ ] Разобрать с работой с сетью в Android приложении (Android отказывается слать запросы на localhost, возможно проблема в http, есть предпологаемое решение, реализую в ближайшее время)
-
 ## Разработчик
 Зибровский Георгий - mobile developer - zibrovski.g@gmail.com
 
