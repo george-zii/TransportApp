@@ -37,9 +37,16 @@ export interface Localization {
     write: string,
     whatsappText: string,
     networkError: string,
+    noFreeCars: string,
 }
 
 export interface YandexMapProps {
     points: Transport[];
     zoom?: string;
   }
+
+export enum TransportType {
+    cargo = '1',
+    passenger = '2',
+    specialized = '3',
+} 

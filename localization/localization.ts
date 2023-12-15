@@ -26,7 +26,8 @@ export const globalLocalization = {
         call: 'Позвонить',
         write: 'Написать',
         whatsappText: 'Добрый день, какой ночер заказа у вас сейчас в работе?',
-        networkError: 'Упс! Данные не загрузились, проблема решается, продолжите на iOS'
+        networkError: 'Упс! Данные не загрузились, проблема решается, продолжите на iOS',
+        noFreeCars: 'Нет свободных машин',
     },
     en: {
         cars: 'Cars',
@@ -55,6 +56,7 @@ export const globalLocalization = {
         call: 'Call',
         write: 'Write',
         whatsappText: 'Hello, what order date are you currently working on?',
-        networkError: 'Oops! The data did not load, the problem is solved, try it on iOS'
+        networkError: 'Oops! The data did not load, the problem is solved, try it on iOS',
+        noFreeCars: 'No free cars',
     },
 }

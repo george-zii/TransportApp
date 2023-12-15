@@ -6,22 +6,21 @@ import { Text, View } from "../components/Themed";
 import { YandexMap } from "../components/YandexMap";
 import { Avatar } from "@rneui/themed";
 import { useLocalization } from "../hooks/useLocalization";
+import { TransportType } from "../api/models";
 
 export default function TransportItemScreen() {
   const { localization } = useLocalization();
   const params = useLocalSearchParams();
   const pressCall = (number: string | number) =>
     Linking.openURL(`tel:///${number}`);
-  const pressWrite = (number: string | number, text: string) =>
-    Linking.openURL(`whatsapp://send?text=${text}&phone=${number}`);
 
-  const func = (item: string) => {
+  const transportTypeSwitch = (item: string) => {
     switch (item) {
-      case "1":
+      case TransportType.cargo:
         return localization.carsTypeLong.cargo;
-      case "2":
+      case TransportType.passenger:
         return localization.carsTypeLong.passenger;
-      case "3":
+      case TransportType.specialized:
         return localization.carsTypeLong.specialized;
       default:
         break;
@@ -47,31 +46,18 @@ export default function TransportItemScreen() {
       />
       <View style={styles.container}>
         <Avatar
-          containerStyle={{ margin: 16 }}
           rounded
           source={{ uri: String(params.photo) }}
           size={120}
         />
         <Text style={styles.title}>{params.title}</Text>
-        <Text style={styles.subTitle}>{func(params.type.toString())}</Text>
+        <Text style={styles.subTitle}>{transportTypeSwitch(params.type.toString())}</Text>
         <Text style={styles.subTitle}>{params.driverName}</Text>
-        <View style={{ flexDirection: "row", marginVertical: 8 }}>
-          <Button
-            style={styles.button}
-            title={localization.call}
-            onPress={() => pressCall(params.driverNumber.toString())}
-          />
-          <Button
-            style={styles.button}
-            title={localization.write}
-            onPress={() =>
-              pressWrite(
-                params.driverNumber.toString(),
-                localization.whatsappText
-              )
-            }
-          />
-        </View>
+        <Button
+          style={styles.button}
+          title={localization.call}
+          onPress={() => pressCall(params.driverNumber.toString())}
+        />
       </View>
     </>
   );
@@ -81,7 +67,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
+    
   },
   title: {
     fontSize: 28,
@@ -96,5 +83,6 @@ const styles = StyleSheet.create({
     height: 1,
     width: "80%",
   },
-  button: { marginHorizontal: 8 },
+  button: { marginBottom: 32 },
+
 });

@@ -5,7 +5,7 @@ import {
   ListRenderItem,
   StyleSheet,
 } from "react-native";
-import { Text, View } from "../../components/Themed";
+import { View } from "../../components/Themed";
 import { useQuery } from "@tanstack/react-query";
 import { getTransport } from "../../api/transport";
 import { Transport } from "../../api/models";
@@ -13,15 +13,12 @@ import { Link } from "expo-router";
 import {
   Avatar,
   ButtonGroup,
-  Card,
-  ListItem,
-  Tab,
-  TabView,
-  Image,
+  Text
 } from "@rneui/themed";
 import { useState } from "react";
 import { useLocalization } from "../../hooks/useLocalization";
 import { YandexMap } from "../../components/YandexMap";
+import { EmptyComponent} from "../../components/EmptyComponent";
 
 export default function TabOneScreen() {
   const { localization } = useLocalization();
@@ -47,16 +44,22 @@ export default function TabOneScreen() {
             photo: item.photo,
           },
         }}
-        style={{ margin: 16 }}
+        style={styles.linkMargin}
       >
         <Avatar rounded source={{ uri: item.photo }} size={80} />
-        <View>
-          <Text style={{ fontSize: 40 }}>{item.title}</Text>
-          <Text style={{ fontSize: 20 }}>{item.driverNumber}</Text>
+        <View style={styles.avatarText}>
+          <Text h3>{item.title}</Text>
+          <Text h4>{item.driverNumber}</Text>
         </View>
       </Link>
     );
   };
+  const carsData = carsQuery.data?.data;
+  const  typeCarsData = carsData
+  ? carsData.filter(
+      (item) => item.type === typeIndex + 1
+    )
+  : [];
   return (
     <>
       <ButtonGroup
@@ -72,13 +75,7 @@ export default function TabOneScreen() {
       />
       {listView ? (
         <YandexMap
-          points={
-            carsQuery.data?.data
-              ? carsQuery.data?.data.filter(
-                  (item) => item.type === typeIndex + 1
-                )
-              : []
-          }
+          points={typeCarsData}
         />
       ) : (
         <>
@@ -86,11 +83,10 @@ export default function TabOneScreen() {
             {carsQuery.isLoading ? <ActivityIndicator /> : null}
             {carsQuery.isError ? <Text>{localization.networkError}</Text> : null}
             <FlatList
-              data={carsQuery.data?.data.filter(
-                (item) => item.type === typeIndex + 1
-              )}
+              data={typeCarsData}
               renderItem={renderTransport}
               keyExtractor={(item) => item.id.toString()}
+              ListEmptyComponent={<EmptyComponent emptyText={localization.noFreeCars}/>}
             />
           </View>
         </>
@@ -117,9 +113,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
+  avatarText: {
+    paddingHorizontal: 16, 
+    justifyContent: 'center'
+  },
   separator: {
     marginVertical: 30,
     height: 1,
     width: "80%",
+  },
+  linkMargin: { 
+    margin: 16 
   },
 });
